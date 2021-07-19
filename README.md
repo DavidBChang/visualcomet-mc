@@ -26,6 +26,7 @@ visualcomet/
   <p>
   For example, I run this command to generate the multiple choice training data:
   </p>
+    
     python create_data.py --data-src-dir '../visualcomet/train_annots.json' --data-dest-dir './data/train.json'
 
 
