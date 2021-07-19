@@ -29,13 +29,20 @@ visualcomet/
   
     python create_data.py --data-src-dir '/path/to/visualcomet_annotations/' --data-dest-dir './data/dataset_filename.json'
 
-  <p>
+
   For example, I run this command to generate the multiple choice training data:
-  </p>
+
     
     python create_data.py --data-src-dir '../visualcomet/train_annots.json' --data-dest-dir './data/train.json'
+    
+    
+ And for the validation data:
+    
+    python create_data.py --data-src-dir '../visualcomet/val_annots.json' --data-dest-dir './data/val.json'
 
 ## Finetune Multiple Choice
+
+### Image and Text
 
   Inside the directory `modeling`, run the following command to finetune multiple choice:
 
@@ -46,6 +53,10 @@ visualcomet/
   The `--train-size` flag is an integer that we divide the training dataset size by. For example, if we have `--train-size 2`, then we train with 1/2 of the total size of the training set.
   
   After finetuning is complete, the best model is saved in the directory `models`.
+### Text-Only
+To specify that we want to finetune with text only, we follow the same procedure as above but set `text-only` flag to True. 
+
+    python run_mc.py --train_data_path '../data/train.json' --val_data_path '../data/val.json' --vcr-img-dir '../../visualcomet/vcr1images/' --vcr-ft-dir '../../visualcomet/features/' --train-size 2 --text-only True
 
 
 
