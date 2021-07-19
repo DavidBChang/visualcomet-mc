@@ -27,6 +27,7 @@ parser.add_argument('--train_data_path', type=str, default='../data/train.json')
 parser.add_argument('--val_data_path', type=str, default='../data/val.json')
 parser.add_argument('--vcr-img-dir', type=str, default='../../visualcomet/vcr1images/')
 parser.add_argument('--vcr-ft-dir', type=str, default='../../visualcomet/features/')
+parser.add_argument('--config', type=str, default='../config/uniter-base.json')
 # parser.add_argument('--bbox-img-dir', type=str)
 parser.add_argument('--best-model', type=str, default='test_roberta.pth')
 parser.add_argument('--cuda', type=int, default=0)
@@ -98,22 +99,22 @@ else:
         collate_fn=DataCollatorForVLMultipleChoice(tokenizer=RobertaTokenizerFast.from_pretrained(args.model))
     )
 
-optim = AdamW(model.parameters(), lr=args.lr)
 num_epochs = 3
 
 LOGGER.info("Setting up model...")
 if args.load_from_checkpoint:
-    model = ImageRobertaForMultipleChoice.from_pretrained("../config/uniter-base.json")
+    model = ImageRobertaForMultipleChoice.from_pretrained(args.config)
     checkpoint = torch.load('../models/{}'.format(args.best_model))
     model.load_state_dict(checkpoint['model_state_dict'])
-    optim.load_state_dict(checkpoint['optimizer_state_dict'])
     num_epochs -= checkpoint['epoch']
 if args.text_only:
-    model = ImageRobertaForMultipleChoice.from_pretrained("../config/uniter-base.json")
+    model = ImageRobertaForMultipleChoice.from_pretrained(args.config)
 else:
     model = ImageRobertaForMultipleChoice.from_pretrained(
-        "../config/uniter-base.json", img_dim=2048 if not args.use_clip else 512, num_answer=1
+        args.config, img_dim=2048 if not args.use_clip else 512, num_answer=1
     )
+
+optim = AdamW(model.parameters(), lr=args.lr)
 
 # model = nn.DataParallel(model)  # , device_ids=[0, 1]).cuda()
 model.to(device)
@@ -220,8 +221,7 @@ def train(model, optimizer, train_loader, val_loader, num_epochs, best_model_pat
             best_model_state = copy.deepcopy(model.state_dict())
             torch.save({
                 'epoch': epoch,
-                'model_state_dict': best_model_state,
-                'optimizer_state_dict': optimizer.state_dict(),
+                'model_state_dict': best_model_state
             }, best_model_path)
 
     print('Finished Training')

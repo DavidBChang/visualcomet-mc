@@ -34,7 +34,7 @@ def preprocess_data(path, img_path, device, tokenizer, train_flag=False, train_s
     image_features = None
     boxes = None
     person_ids = None
-    for i, example in enumerate(data[:int(len(data) // 100)]):  # [:int(len(data) // 100)]
+    for i, example in enumerate(data):
         ex_img_id = example['img_id']
 
         if not text_only:
