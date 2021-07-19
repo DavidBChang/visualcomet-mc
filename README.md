@@ -6,18 +6,20 @@
   <p>
   The visualcomet data should be in the following folder structure:
   </p>
-```
-visualcomet/
-|-- features/
-|-- vcr1images/
-|   |-- VERSION.txt
-|   |-- movie name, like movieclips_A_Fistful_of_Dollars
-|   |   |-- image files, like Sv_GcxkmW4Y@29.jpg
-|   |   |-- metadata files, like Sv_GcxkmW4Y@29.json
-|-- train_annots.json
-|-- val_annots.json
-|-- test_annots.json
-```
+  
+  
+    ```
+    visualcomet/
+    |-- features/
+    |-- vcr1images/
+    |   |-- VERSION.txt
+    |   |-- movie name, like movieclips_A_Fistful_of_Dollars
+    |   |   |-- image files, like Sv_GcxkmW4Y@29.jpg
+    |   |   |-- metadata files, like Sv_GcxkmW4Y@29.json
+    |-- train_annots.json
+    |-- val_annots.json
+    |-- test_annots.json
+    ```
   
 
   <p>
