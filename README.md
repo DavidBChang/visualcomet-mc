@@ -7,6 +7,7 @@
   The visualcomet data should be in the following folder structure:
   </p>
 visualcomet/
+.
 |-- features/
 |-- vcr1images/
 |   |-- VERSION.txt
