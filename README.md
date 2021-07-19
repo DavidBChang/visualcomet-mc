@@ -29,11 +29,16 @@ visualcomet/
   
     python create_data.py --data-src-dir '/path/to/visualcomet_annotations/' --data-dest-dir './data/dataset_filename.json'
 
-  <p>
+
   For example, I run this command to generate the multiple choice training data:
-  </p>
+
     
     python create_data.py --data-src-dir '../visualcomet/train_annots.json' --data-dest-dir './data/train.json'
+    
+    
+ And for the validation data:
+    
+    python create_data.py --data-src-dir '../visualcomet/val_annots.json' --data-dest-dir './data/val.json'
 
 ## Finetune Multiple Choice
 
