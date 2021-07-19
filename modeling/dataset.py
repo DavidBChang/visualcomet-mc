@@ -78,10 +78,8 @@ def preprocess_data(path, img_path, device, tokenizer, train_flag=False, train_s
                 img_pos_feat.append(boxes)
                 img_person_ids.append(person_ids)
 
-        # prompts.append([example['event'].split('.')[-1]] * 4)  # don't include event in the mc prompt
-        # answers.append([example['ending0'], example['ending1'], example['ending2'], example['ending3']])
-        prompts.append(['a'] * 4)
-        answers.append([str(random.randint(0, 1000000)), str(random.randint(0, 1000000)), str(random.randint(0, 1000000)), str(random.randint(0, 1000000))])
+        prompts.append([example['event'].split('.')[-1]] * 4)  # don't include event in the mc prompt
+        answers.append([example['ending0'], example['ending1'], example['ending2'], example['ending3']])
         labels.append(example['label'])
 
         if i % 1000 == 0:
