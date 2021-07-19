@@ -37,6 +37,8 @@ visualcomet/
 
 ## Finetune Multiple Choice
 
+### Image and Text
+
   Inside the directory `modeling`, run the following command to finetune multiple choice:
 
   
@@ -46,6 +48,10 @@ visualcomet/
   The `--train-size` flag is an integer that we divide the training dataset size by. For example, if we have `--train-size 2`, then we train with 1/2 of the total size of the training set.
   
   After finetuning is complete, the best model is saved in the directory `models`.
+### Text-Only
+To specify that we want to finetune with text only, we follow the same procedure as above but set `text-only` flag to True. 
+
+    python run_mc.py --train_data_path '../data/train.json' --val_data_path '../data/val.json' --vcr-img-dir '../../visualcomet/vcr1images/' --vcr-ft-dir '../../visualcomet/features/' --train-size 2 --text-only True
 
 
 
