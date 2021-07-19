@@ -1,6 +1,7 @@
 # visualcomet-mc
 
 ## Get Started
+1.
 <p>
   Generate the multiple choice data from the visual comet annotations located in the source directory, visualcomet, and specify the file that stores the multiple choice data located in destination directory, data. </p>
   <p>
@@ -35,6 +36,6 @@ visualcomet/
     
     python create_data.py --data-src-dir '../visualcomet/train_annots.json' --data-dest-dir './data/train.json'
 
-
+2. 
 
 
