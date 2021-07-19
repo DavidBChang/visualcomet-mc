@@ -6,6 +6,15 @@
   <p>
   The visualcomet data should be in the following folder structure:
   </p>
+    .
+    ├── build                   # Compiled files (alternatively `dist`)
+    ├── docs                    # Documentation files (alternatively `doc`)
+    ├── src                     # Source files (alternatively `lib` or `app`)
+    ├── test                    # Automated tests (alternatively `spec` or `tests`)
+    ├── tools                   # Tools and utilities
+    ├── LICENSE
+    └── README.md
+  
 visualcomet/
 .
 |-- features/
