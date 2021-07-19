@@ -43,7 +43,9 @@ visualcomet/
     python run_mc.py --train_data_path '../data/train.json' --val_data_path '../data/val.json' --vcr-img-dir '../../visualcomet/vcr1images/' --vcr-ft-dir '../../visualcomet/features/' --train-size 10
     
 
-  The `--train-size` flag is an integer that we divide the training dataset size by. For example, if we have `--train-size 10`, then we train with 1/10 the total size of the training set.
+  The `--train-size` flag is an integer that we divide the training dataset size by. For example, if we have `--train-size 10`, then we train with 1/10 of the total size of the training set.
+  
+  After finetuning is complete, the best model is saved in the directory `models`.
 
 
 
