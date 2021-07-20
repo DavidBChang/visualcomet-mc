@@ -209,16 +209,16 @@ def read_text(path, large_file):
         json.dump(data_large, large_json)
 
 
-read_text('../visualcomet/train_annots.json', './data/train.json')
-read_text('../visualcomet/val_annots.json', './data/val.json')
+# read_text('../visualcomet/train_annots.json', './data/train.json')
+# read_text('../visualcomet/val_annots.json', './data/val.json')
 # read_text('../visualcomet/test_annots.json', './data/test2.json')
 
-# parser = argparse.ArgumentParser(description='Build MC data')
-#
-# parser.add_argument('--data-src-dir', type=str)
-# parser.add_argument('--data-dest-dir', type=str)
-# args = parser.parse_args()
-#
-# read_text(args.data_src_dir, args.data_dest_dir)
+parser = argparse.ArgumentParser(description='Build MC data')
+
+parser.add_argument('--data-src-dir', type=str)
+parser.add_argument('--data-dest-dir', type=str)
+args = parser.parse_args()
+
+read_text(args.data_src_dir, args.data_dest_dir)
 
 
